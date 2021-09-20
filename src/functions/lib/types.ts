@@ -13,6 +13,11 @@ export type MovieList = {
   Error?: string;
 };
 
+export type ErrMessage = {
+  Response: string;
+  Error: string;
+};
+
 export type SingleRating = {
   Source: string;
   Value: string;
