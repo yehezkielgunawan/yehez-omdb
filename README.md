@@ -1,39 +1,23 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and TypeScript
+This project is made by [Next JS](https://nextjs.org/) and [Chakra UI](https://github.com/chakra-ui/chakra-ui)
+The live demo can be seen at [yehez-omdb.yehezgun.com](https://yehez-omdb.yehezgun.com)
 
-This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with TypeScript.
+### How to use it
 
-Next.js and chakra-ui have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
+- Open [yehez-omdb.yehezgun.com](https://yehez-omdb.yehezgun.com)
+- Search your favourite movie by keyword
+- If you click the image, the pop up modal will show the close up movie poster.
+- You can click the texts besides the image to open the detail page.
 
-We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so the pages can have app-wide dark/light mode. We are also creating some components which shows the usage of `chakra-ui`'s style props.
+### How to run it locally
 
-## Preview
+- Clone this project using `git clone https://github.com/yehezkielgunawan/yehezgun.com.git`
+- Don't forget to install the dependencies using `npm install` or `yarn`
+- You run the dev server using `npm run dev` or `yarn dev` and open the running localhost in your browser
+- Or you also can build the project using `npm run build` or `yarn build`, then run the production in local using `yarn start` or `npm start` and open the running localhost in your browser.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+### Notes
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript&project-name=with-chakra-ui-typescript&repository-name=with-chakra-ui-typescript)
-
-## How to use
-
-### Using `create-next-app`
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-# or
-yarn create next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-Chakra has supported Gradients and RTL in `v1.1`. To utilize RTL, [add RTL direction and swap](https://chakra-ui.com/docs/features/rtl-support).
-
-If you don't have multi-direction app, you should make `<Html lang="ar" dir="rtl">` inside `_document.ts`.
+- Due to time limit, I use Context (not Redux), but it has the same concept about state management.
+- And also, I use the pagination (not the infinite scroll) due to time limitation.
+- Let me know if there is some feedback that you want to give, thanks.
+s
