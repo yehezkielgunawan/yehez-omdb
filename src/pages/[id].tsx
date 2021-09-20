@@ -1,7 +1,9 @@
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import {
   Button,
+  Divider,
   Flex,
+  Heading,
   Img,
   Link as ChakraLink,
   Stack,
@@ -64,6 +66,8 @@ const MovieDetails = () => {
             boxSize={isDesktopWidth ? "320px" : "140px"}
           />
           <Stack spacing={3}>
+            <Heading as="h6">DETAIL INFO</Heading>
+            <Divider />
             <Text>
               <b>Title : </b> {movieDetail.Title}
             </Text>
@@ -130,7 +134,14 @@ const MovieDetails = () => {
               <b>Production :</b> {movieDetail.Production}
             </Text>
             <Text>
-              <b>Website :</b> {movieDetail.Website}
+              <b>Website :</b>{" "}
+              {movieDetail.Website === "N/A" ? (
+                movieDetail.Website
+              ) : (
+                <ChakraLink isExternal href={movieDetail.Website}>
+                  {movieDetail.Website}
+                </ChakraLink>
+              )}
             </Text>
           </Stack>
         </Flex>
