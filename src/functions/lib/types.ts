@@ -7,14 +7,10 @@ export type SingleMovie = {
 };
 
 export type MovieList = {
-  Search: Array<SingleMovie>;
-  totalResults: number;
-  Response: boolean;
-};
-
-export type ErrorMessage = {
-  response: string;
-  error: string;
+  Search?: Array<SingleMovie>;
+  totalResults?: number;
+  Response: string;
+  Error?: string;
 };
 
 export type SingleRating = {

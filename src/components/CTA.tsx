@@ -24,7 +24,9 @@ export const CTA = () => {
         mx="auto"
         py={2}
       >
-        <Text>Yehez-OMDB</Text>
+        <Text>
+          <b>Yehez-OMDB</b>
+        </Text>
         <DarkModeSwitch />
       </Flex>
     </Box>

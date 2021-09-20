@@ -1,10 +1,18 @@
 import axios, { AxiosResponse } from "axios";
 
-import { API_KEY, BASE_URL } from "../../constants/config";
+import { BASE_URL } from "../../constants/config";
 import { MovieList } from "./types";
 
-export const getMovieList = async (keyword: string) => {
+export const getMovieRes = async (
+  keyword: string,
+  API_KEY: string,
+  page?: number,
+) => {
   return axios
-    .get(`${BASE_URL}?apikey=${API_KEY}&s=${keyword}&page=2`)
+    .get(
+      `${BASE_URL}?apikey=${API_KEY}&s=${keyword}${
+        page ? `&page=${page}` : ""
+      }`,
+    )
     .then((res: AxiosResponse<MovieList>) => res.data);
 };
