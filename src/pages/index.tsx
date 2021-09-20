@@ -18,10 +18,10 @@ import { useAPIKeyContext } from "../components/provider";
 import { useAppToast } from "../components/ui/AppToast";
 import ModalDialogComponent from "../components/ui/ModalDialog";
 import { Main } from "../components/wrapper/Main";
+import { INITIAL_MOVIE_RES } from "../constants/Initial_types";
 import { useDesktopWidthCheck } from "../functions/helpers/desktopWidthChecker";
 import { getMovieRes } from "../functions/lib/fetcher";
 import { ErrMessage, MovieList } from "../functions/lib/types";
-import { INITIAL_MOVIE_RES } from "./types";
 
 const Index = () => {
   const { api_key } = useAPIKeyContext();
