@@ -7,12 +7,14 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React, { KeyboardEventHandler, useState } from "react";
 
 import { useAPIKeyContext } from "../components/provider";
 import { useAppToast } from "../components/ui/AppToast";
+import ModalDialogComponent from "../components/ui/ModalDialog";
 import { Main } from "../components/wrapper/Main";
 import { useDesktopWidthCheck } from "../functions/helpers/desktopWidthChecker";
 import { getMovieRes } from "../functions/lib/fetcher";
@@ -23,6 +25,8 @@ const Index = () => {
   const { api_key } = useAPIKeyContext();
   const toast = useAppToast();
   const isDesktopWidth = useDesktopWidthCheck();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [imageModalSrc, setImageModalSrc] = useState<string>("");
   const [moviesRes, setMoviesRes] = useState<MovieList>(INITIAL_MOVIE_RES);
   const [keyword, setKeyword] = useState<string>("");
 
@@ -42,6 +46,11 @@ const Index = () => {
     if (e.key === "Enter") {
       handleSubmit();
     }
+  };
+
+  const handleOpenImageModal = (imageSrc: string) => {
+    setImageModalSrc(imageSrc);
+    onOpen();
   };
 
   return (
@@ -77,15 +86,16 @@ const Index = () => {
               borderWidth={2}
               w="100%"
             >
-              <NextLink href={`/${movie.imdbID}`} passHref>
-                <Flex as="a" gridGap={3} align="center" justify="left">
-                  <Img
-                    src={movie.Poster}
-                    boxSize={isDesktopWidth ? "140px" : "100px"}
-                    align="center"
-                    objectFit="contain"
-                  />
-                  <Stack spacing={2} justify="left">
+              <Flex gridGap={3} align="center" justify="left">
+                <Img
+                  src={movie.Poster}
+                  boxSize={isDesktopWidth ? "140px" : "100px"}
+                  align="center"
+                  objectFit="contain"
+                  onClick={() => handleOpenImageModal(movie.Poster)}
+                />
+                <NextLink href={`/${movie.imdbID}`} passHref>
+                  <Stack as="a" spacing={2} justify="left">
                     <Text fontSize="sm">
                       <b>Title:</b> {movie.Title}
                     </Text>
@@ -99,8 +109,8 @@ const Index = () => {
                       <b>Type:</b> {movie.Type}
                     </Text>
                   </Stack>
-                </Flex>
-              </NextLink>
+                </NextLink>
+              </Flex>
             </Box>
           ))}
       </SimpleGrid>
@@ -109,6 +119,11 @@ const Index = () => {
           <b>Oops not found!</b>
         </Text>
       )}
+      <ModalDialogComponent
+        isOpen={isOpen}
+        onClose={onClose}
+        imageSrc={imageModalSrc}
+      />
     </Main>
   );
 };
