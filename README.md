@@ -24,4 +24,3 @@ The live demo can be seen at [yehez-omdb.yehezgun.com](https://yehez-omdb.yehezg
 - Due to time limit, I use Context (not Redux), but it has the same concept about state management.
 - And also, I use the pagination (not the infinite scroll) due to time limitation.
 - Let me know if there is some feedback that you want to give, thanks.
-  s
